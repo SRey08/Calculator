@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', function() {
     amountUI.value = values.amount;
     const yearsUI = document.getElementById("loan-years");
     yearsUI.value= values.years;
-    const rateUI= dcoument.getElementById("loan-rate");
+    const rateUI= document.getElementById("loan-rate");
     rateUI.value = values.rate;
     update();
 
@@ -44,12 +44,14 @@ window.addEventListener('DOMContentLoaded', function() {
   // that always has 2 decimal places.
   function calculateMonthlyPayment(values) {
     const monthlyRate =(values.rate/ 100)/12 ;
-    const n= math.floor(values.years * 12);
+    const n= Math.floor(values.years * 12);
     return (
         (monthlyRate * values.amount) /
-        (1 - math.pow((1 + monthlyRate), -n)).toFixed(2);
-    )
+        (1 - Math.pow((1 + monthlyRate), -n))
+    ).toFixed(2);
+    
   }
+
   
   // Given a string representing the monthly payment value,
   // update the UI to show the value.
